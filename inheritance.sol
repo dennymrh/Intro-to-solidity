@@ -43,9 +43,7 @@ contract Will{
         inheritance[_wallet] = _inheritance;
     }
     
-    function payout() private mustBeDeceased{
-
-        
+    function payout() private mustBeDeceased{        
         for (uint i = 0; i < wallets.length; i++){
             emit beforeTransfer(fortune, inheritance[wallets[i]]);
             if(fortune >= inheritance[wallets[i]]){
@@ -58,7 +56,6 @@ contract Will{
     }
     
     function deceased() public onlyOwner{ // How a dead person calls this function remains questionable.
-
         isDeceased = true;
         payout();
     }
